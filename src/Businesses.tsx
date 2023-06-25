@@ -57,7 +57,7 @@ function Businesses() {
             setBusinessData([...businessData, { ...newBusiness, coords: generateRandomCoords() } as Business]);
             setNewBusiness({});
         } else {
-            console.error("All fields must be filled out to add a new business");
+            console.error("All fields must be filled out to add a new business.");
         }
     };
 
