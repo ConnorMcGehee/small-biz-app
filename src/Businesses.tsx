@@ -3,6 +3,7 @@ import { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
 import { useEffect, useState } from 'react';
 import "./App.css"
 import { useStore } from './store';
+import { HashLink } from 'react-router-hash-link';
 
 function ChangeMapView({ coords }: { coords: LatLngExpression }) {
     const map = useMap();
@@ -97,7 +98,7 @@ function Businesses() {
             <h1>Austin Small Businesses</h1>
             <ul>
                 {businessData.map((business, index) => (
-                    <a key={index} href="#map">
+                    <HashLink key={index} to="#map">
                         <li onClick={() => {
                             setSelectedLocation(business.coords)
                             setDetails(business)
@@ -108,7 +109,7 @@ function Businesses() {
                             <p>{business.address}</p>
                             {isLoggedIn && <button onClick={() => deleteBusiness(business)}>Delete</button>}
                         </li>
-                    </a>
+                    </HashLink>
                 ))}
             </ul>
             {isLoggedIn && (
