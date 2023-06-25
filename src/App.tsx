@@ -7,13 +7,13 @@ import Login from "./Login";
 function App() {
   return (
     <div className="App">
-      <HashRouter basename="/small-biz-app">
+      <HashRouter>
         <Nav />
         <Routes>
           <Route path="/" element={<Businesses />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </HashRouter>
     </div>
