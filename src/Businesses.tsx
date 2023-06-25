@@ -3,7 +3,6 @@ import { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
 import { useEffect, useState } from 'react';
 import "./App.css"
 import { useStore } from './store';
-import { HashLink } from 'react-router-hash-link';
 
 function ChangeMapView({ coords }: { coords: LatLngExpression }) {
     const map = useMap();
@@ -45,6 +44,10 @@ function Businesses() {
         { name: "South Austin Music", type: "Music store", phone: "(512) 448-4992", address: "1402 S Lamar Blvd, Austin, TX 78704", coords: [30.252630, -97.764061] as LatLngExpression },
         { name: "Reverie Books", type: "Bookstore", phone: "(512) 368-4455", address: "5330 Menchaca Rd Ste D, Austin, TX 78745", coords: [30.217700, -97.796570] as LatLngExpression },
     ]);
+
+    function aClick() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
 
     const [newBusiness, setNewBusiness] = useState<Partial<Business>>({});
 
@@ -98,7 +101,7 @@ function Businesses() {
             <h1>Austin Small Businesses</h1>
             <ul>
                 {businessData.map((business, index) => (
-                    <HashLink key={index} to="#map">
+                    <a key={index} onClick={aClick}>
                         <li onClick={() => {
                             setSelectedLocation(business.coords)
                             setDetails(business)
@@ -109,7 +112,7 @@ function Businesses() {
                             <p>{business.address}</p>
                             {isLoggedIn && <button onClick={() => deleteBusiness(business)}>Delete</button>}
                         </li>
-                    </HashLink>
+                    </a>
                 ))}
             </ul>
             {isLoggedIn && (
