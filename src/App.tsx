@@ -7,7 +7,7 @@ import Login from "./Login";
 function App() {
   return (
     <div className="App">
-      <HashRouter>
+      <HashRouter basename="/small-biz-app">
         <Nav />
         <Routes>
           <Route path="/" element={<Businesses />} />
