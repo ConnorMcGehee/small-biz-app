@@ -1,5 +1,5 @@
 import Businesses from "./Businesses";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import NotFound from "./NotFound";
 import Nav from "./Nav";
 import Login from "./Login";
@@ -7,7 +7,7 @@ import Login from "./Login";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Nav />
         <Routes>
           <Route path="/" element={<Businesses />} />
@@ -15,7 +15,7 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };
